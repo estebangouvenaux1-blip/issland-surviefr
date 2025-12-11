@@ -5,136 +5,206 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Island Survie - Jeu Roblox</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <h1>🏝️ Island Survie</h1>
+    <!-- AUTH MODAL (Login/Register) -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-box">
+            <h1>🏝️ Island Survie</h1>
+            
+            <div id="login-tab" class="auth-tab active">
+                <h2>Connexion</h2>
+                <input type="text" id="login-username" placeholder="Nom d'utilisateur">
+                <input type="password" id="login-password" placeholder="Mot de passe">
+                <button id="login-btn" class="btn-auth">Se Connecter</button>
+                <p id="login-error" class="auth-error"></p>
+                <p>Pas de compte? <a href="#" id="switch-register" class="auth-link">S'inscrire</a></p>
             </div>
-            <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#info">Infos</a></li>
-                <li><a href="#evenements">Événements</a></li>
-                <li><a href="#galerie">Galerie</a></li>
-                <li><a href="https://www.roblox.com/fr/games/113587492149668/Island-Survie" class="btn-play" target="_blank">Roblox</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- En-tête Hero -->
-    <header id="accueil" class="hero">
-        <div class="hero-content">
-            <h2>Bienvenue sur Island Survie</h2>
-            <p>Survies sur une île mystérieuse et relève les défis!</p>
-            <a href="https://www.roblox.com/fr/games/113587492149668/Island-Survie" class="btn btn-primary" target="_blank">
-                Jouer Maintenant sur Roblox
-            </a>
-        </div>
-    </header>
-
-    <!-- Section Statistiques -->
-    <section id="info" class="stats-section">
-        <div class="container">
-            <h2>Statistiques du Jeu</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">👥</div>
-                    <div class="stat-content">
-                        <h3>Joueurs Connectés</h3>
-                        <p class="stat-value" id="joueurs-connectes">Chargement...</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">⭐</div>
-                    <div class="stat-content">
-                        <h3>Note du Jeu</h3>
-                        <p class="stat-value" id="note-jeu">Chargement...</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">🎮</div>
-                    <div class="stat-content">
-                        <h3>Visites Totales</h3>
-                        <p class="stat-value" id="visites-total">Chargement...</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">📅</div>
-                    <div class="stat-content">
-                        <h3>Joueurs Favoris</h3>
-                        <p class="stat-value" id="joueurs-favoris">Chargement...</p>
-                    </div>
-                </div>
+            <div id="register-tab" class="auth-tab">
+                <h2>Inscription</h2>
+                <input type="text" id="register-username" placeholder="Nom d'utilisateur">
+                <input type="password" id="register-password" placeholder="Mot de passe">
+                <input type="password" id="register-confirm" placeholder="Confirmer mot de passe">
+                <button id="register-btn" class="btn-auth">S'Inscrire</button>
+                <p id="register-error" class="auth-error"></p>
+                <p>Déjà un compte? <a href="#" id="switch-login" class="auth-link">Se connecter</a></p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Section Événements -->
-    <section id="evenements" class="events-section">
-        <div class="container">
-            <h2>Événements du Jeu</h2>
-            <div class="events-grid" id="events-container">
-                <div class="event-card">
-                    <div class="event-header">
-                        <h3>Événement en Cours</h3>
-                        <span class="event-badge">EN DIRECT</span>
+    <!-- APP CONTAINER (visible que si connecté) -->
+    <div id="app-container" class="hidden">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>🏝️ Island Survie</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" id="nav-accueil" class="nav-tab" data-tab="accueil">Accueil</a></li>
+                    <li><a href="#" id="nav-info" class="nav-tab" data-tab="info">Infos</a></li>
+                    <li><a href="#" id="nav-shorts" class="nav-tab" data-tab="shorts">📸 Shorts</a></li>
+                    <li><a href="#" id="nav-chat" class="nav-tab" data-tab="chat">💬 Chat</a></li>
+                    <li><a href="#" id="nav-appels" class="nav-tab" data-tab="appels">☎️ Appels</a></li>
+                    <li><a href="#" id="nav-logout" class="btn-play">Déconnexion</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- PAGE ACCUEIL -->
+        <div id="page-accueil" class="page active">
+            <header class="hero">
+                <div class="hero-content">
+                    <h2>Bienvenue sur Island Survie</h2>
+                    <p>Survies sur une île mystérieuse et relève les défis!</p>
+                    <a href="https://www.roblox.com/fr/games/113587492149668/Island-Survie" class="btn btn-primary" target="_blank">
+                        Jouer Maintenant sur Roblox
+                    </a>
+                </div>
+            </header>
+
+            <section class="stats-section">
+                <div class="container">
+                    <h2>Statistiques du Jeu</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-content">
+                                <h3>Joueurs Connectés</h3>
+                                <p class="stat-value" id="joueurs-connectes">Chargement...</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-content">
+                                <h3>Note du Jeu</h3>
+                                <p class="stat-value" id="note-jeu">Chargement...</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👁️</div>
+                            <div class="stat-content">
+                                <h3>Visites Totales</h3>
+                                <p class="stat-value" id="visites-totales">Chargement...</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💟</div>
+                            <div class="stat-content">
+                                <h3>Favoris</h3>
+                                <p class="stat-value" id="favoris">Chargement...</p>
+                            </div>
+                        </div>
                     </div>
-                    <p>Chargement des événements...</p>
+                </div>
+            </section>
+
+            <section class="events-section">
+                <div class="container">
+                    <h2>🎉 Événements du Jeu</h2>
+                    <div class="events-grid" id="events-container"></div>
+                </div>
+            </section>
+
+            <section class="gallery-section">
+                <div class="container">
+                    <h2>🖼️ Galerie</h2>
+                    <div class="gallery-grid" id="gallery-container"></div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <div class="container">
+                    <h2>À Propos du Jeu</h2>
+                    <div class="about-content">
+                        <p id="about-text">Island Survie est un jeu Roblox passionnant où vous devez survivre sur une île tropicale mystérieuse.</p>
+                        <div class="features">
+                            <div class="feature"><span>🌳</span><p>Environnement Tropical</p></div>
+                            <div class="feature"><span>🏗️</span><p>Construction</p></div>
+                            <div class="feature"><span>👥</span><p>Multijoueur</p></div>
+                            <div class="feature"><span>🏆</span><p>Défis</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>&copy; 2025 Island Survie - Site Officiel</p>
+            </footer>
+        </div>
+
+        <!-- PAGE INFO -->
+        <div id="page-info" class="page">
+            <div class="container" style="padding: 2rem 0;">
+                <h2>Informations du Jeu</h2>
+                <p>Contenu pour la page Info (à compléter)</p>
+            </div>
+        </div>
+
+        <!-- PAGE SHORTS (TikTok-style) -->
+        <div id="page-shorts" class="page shorts-page">
+            <div class="shorts-container">
+                <!-- PUBLISH BUTTON -->
+                <div class="shorts-publish">
+                    <button id="publish-short-btn" class="btn-publish-short">+ Publier un Short</button>
+                </div>
+
+                <!-- SHORTS FEED -->
+                <div id="shorts-feed" class="shorts-feed"></div>
+            </div>
+
+            <!-- PUBLISH MODAL -->
+            <div id="short-publish-modal" class="modal-short hidden">
+                <div class="short-publish-box">
+                    <h2>📸 Publier un Short</h2>
+                    <input type="file" id="short-file" accept="image/*,video/*" placeholder="Sélectionner image/vidéo">
+                    <textarea id="short-caption" placeholder="Écris une description..."></textarea>
+                    <div class="short-publish-actions">
+                        <button id="cancel-short" class="btn-cancel">Annuler</button>
+                        <button id="confirm-short" class="btn-confirm">Publier</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Section Galerie -->
-    <section id="galerie" class="gallery-section">
-        <div class="container">
-            <h2>Galerie du Jeu</h2>
-            <div class="gallery-grid" id="gallery-container">
-                <div class="gallery-item loading">
-                    <p>Chargement des images...</p>
+        <!-- PAGE CHAT -->
+        <div id="page-chat" class="page">
+            <div class="chat-page-container">
+                <div class="chat-messages-box" id="chat-messages"></div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Écris un message...">
+                    <input type="file" id="chat-image" accept="image/*" style="display:none">
+                    <button id="chat-image-btn" class="btn-chat">📷</button>
+                    <button id="chat-send" class="btn-chat">Envoyer</button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Section À Propos -->
-    <section class="about-section">
-        <div class="container">
-            <h2>À Propos d'Island Survie</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>🏝️ Une Expérience de Survie Unique</h3>
-                    <p>
-                        Island Survie est un jeu Roblox immersif où vous devez survivre sur une île mystérieuse.
-                        Collectez des ressources, construisez des abris, et relevez des défis époustouflants.
-                    </p>
-                    <h3>✨ Caractéristiques</h3>
-                    <ul>
-                        <li>🌴 Environnement tropical magnifique</li>
-                        <li>🔨 Système de construction personnalisable</li>
-                        <li>🏆 Défis et quêtes variées</li>
-                        <li>👥 Jeu en multijoueur coopératif</li>
-                        <li>🎁 Récompenses quotidiennes</li>
-                    </ul>
+        <!-- PAGE APPELS -->
+        <div id="page-appels" class="page">
+            <div class="appels-container">
+                <h2>Appels</h2>
+                <div class="appels-list" id="appels-list">
+                    <p>Aucun appel en cours...</p>
+                </div>
+                <button id="start-call-btn" class="btn-call">Démarrer un Appel</button>
+
+                <!-- CALL MODAL -->
+                <div id="call-modal" class="modal-call hidden">
+                    <div class="call-box">
+                        <h3>Appel en cours...</h3>
+                        <div id="call-video" class="call-video"></div>
+                        <div class="call-controls">
+                            <button id="toggle-mic" class="btn-call-control">🎤 Micro</button>
+                            <button id="toggle-camera" class="btn-call-control">📹 Caméra</button>
+                            <button id="end-call" class="btn-call-control danger">Terminer</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Pied de page -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Island Survie. Jeu Roblox - Créé avec passion.</p>
-            <p>
-                <a href="https://www.roblox.com/fr/games/113587492149668/Island-Survie" target="_blank">
-                    Jouer sur Roblox
-                </a>
-            </p>
-        </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
