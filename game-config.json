@@ -1,0 +1,95 @@
+{
+  "gameInfo": {
+    "name": "Island Survie",
+    "gameId": "113587492149668",
+    "url": "https://www.roblox.com/fr/games/113587492149668/Island-Survie",
+    "apiUrl": "https://games.roblox.com/v1/games/113587492149668",
+    "description": "Survivez sur une île mystérieuse et relevez les défis!",
+    "creator": "Island Survie Studio"
+  },
+  "events": [
+    {
+      "id": 1,
+      "titre": "🎮 Événement Island Survie - Semaine de l'Extrême",
+      "description": "Rejoignez-nous pour une semaine époustouflante de survie extrême! Défiez vos amis et gagnez des récompenses exclusives.",
+      "date": "En cours",
+      "icone": "⚡",
+      "statut": "EN DIRECT",
+      "endDate": "2025-12-18"
+    },
+    {
+      "id": 2,
+      "titre": "🏆 Défi de Construction Hebdomadaire",
+      "description": "Construisez le plus impressionnant abri sur l'île. Les 5 meilleures créations remportent des bonus spéciaux!",
+      "date": "Cette semaine",
+      "icone": "🏗️",
+      "statut": "EN COURS",
+      "endDate": "2025-12-14"
+    },
+    {
+      "id": 3,
+      "titre": "🗺️ Quête de l'Île Mystérieuse",
+      "description": "Explorez tous les coins cachés de l'île et trouvez les artefacts légendaires pour débloquer le trésor ultime.",
+      "date": "Permanent",
+      "icone": "🗝️",
+      "statut": "DISPONIBLE",
+      "endDate": null
+    },
+    {
+      "id": 4,
+      "titre": "👥 Compétition Multijoueur - Bataille Royale",
+      "description": "Affrontez jusqu'à 100 joueurs dans une bataille épique pour devenir le dernier survivant de l'île!",
+      "date": "Quotidien",
+      "icone": "🏆",
+      "statut": "EN DIRECT",
+      "endDate": null
+    },
+    {
+      "id": 5,
+      "titre": "📸 Saison Nouvelle - Cosmétiques Exclusifs",
+      "description": "Découvrez les nouveaux skins, emotes et accessoires exotiques de cette saison. Edition limitée!",
+      "date": "Aujourd'hui",
+      "icone": "🎨",
+      "statut": "NOUVEAU",
+      "endDate": "2025-12-25"
+    }
+  ],
+  "gallery": [
+    {
+      "titre": "Île Tropicale",
+      "description": "Découvrez le magnifique paysage de l'île",
+      "icone": "🏝️",
+      "color": "#FF6B6B"
+    },
+    {
+      "titre": "Construction",
+      "description": "Construisez votre propre abri",
+      "icone": "🏗️",
+      "color": "#4ECDC4"
+    },
+    {
+      "titre": "Aventure",
+      "description": "Explorez les mystères de l'île",
+      "icone": "🗺️",
+      "color": "#45B7D1"
+    },
+    {
+      "titre": "Multijoueur",
+      "description": "Jouez avec vos amis",
+      "icone": "👥",
+      "color": "#F7B731"
+    },
+    {
+      "titre": "Récompenses",
+      "description": "Gagnez des récompenses exclusives",
+      "icone": "🎁",
+      "color": "#5F27CD"
+    },
+    {
+      "titre": "Défis",
+      "description": "Relevez des défis époustouflants",
+      "icone": "⚡",
+      "color": "#FF9FF3"
+    }
+  ]
+}
